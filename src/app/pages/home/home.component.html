@@ -1,0 +1,70 @@
+<section>
+  <div id="containerCarrosel">
+    <div id="filmeCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <ng-container *ngFor="let filme of filmesLancamentos; let i = index">
+          <div class="carousel-item" [ngClass]="{ active: i === 0 }">
+            <a class="link-filme" [routerLink]="['/detalhes', filme.id]">
+              <img
+                class="d-block w-100 banner"
+                [src]="'https://image.tmdb.org/t/p/original' + filme.banner"
+                [alt]="'Banner do Filme ' + (i + 1)"
+              />
+            </a>
+            <div class="carousel-caption d-none d-md-block">
+              <h3>{{ filme.titulo }}</h3>
+              <p>{{ filme.descricao }}</p>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#filmeCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#filmeCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Próximo</span>
+      </button>
+    </div>
+  </div>
+  <div class="container mt-4 accordion" id="accordionListas">
+    <!-- Categoria Bem Avaliado -->
+    <div class="accordion-item bg-transparent border-0">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button bg-transparent border-0 pt-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseTwo"
+          aria-expanded="true"
+          aria-controls="collapseTwo"
+        >
+          <h2 class="text-warning mt-4">Mais Bem Avaliado</h2>
+        </button>
+      </h2>
+      <div
+        id="collapseTwo"
+        class="accordion-collapse collapse show"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          <div class="row" id="listaFilmesBemAvaliado">
+            <!-- Lista de Filmes -->
+            <app-lista-filme [tipoLista]="'BemAvaliado'"></app-lista-filme>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
