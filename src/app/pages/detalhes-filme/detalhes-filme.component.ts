@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FilmeDetalhes } from 'src/app/models/filme-detalhes';
 import { IFavoritosFilmes } from 'src/app/models/filme-favoritos';
 import { FilmeService } from 'src/app/services/filme.service';
+import { RepositorioFilmesFavoritos } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-detalhes-filme',
@@ -10,17 +11,33 @@ import { FilmeService } from 'src/app/services/filme.service';
   styleUrls: ['./detalhes-filme.component.css'],
 })
 export class DetalhesFilmeComponent {
-  favorito!: IFavoritosFilmes;
+  favoritos: IFavoritosFilmes = { favoritosIds: [] };
+  favoritado: boolean = false;
   filme: FilmeDetalhes = new FilmeDetalhes('', '', '', '', 0, [], '', '');
-  favoritarFilme() {}
+
+  favoritarFilme() {
+    if (!this.favoritado) {
+      this.favoritado = true;
+      this.favoritos.favoritosIds.push(parseInt(this.filme.id));
+    } else {
+      this.favoritado = false;
+      let index = this.favoritos.favoritosIds.indexOf(parseInt(this.filme.id));
+      this.favoritos.favoritosIds.splice(index);
+    }
+    this.repositorioFavoritos.salvarFavoritos(this.favoritos);
+  }
 
   constructor(
     private filmeService: FilmeService,
+    private repositorioFavoritos: RepositorioFilmesFavoritos,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!);
+
+    this.favoritos = this.repositorioFavoritos.carregarFavoritos();
+    this.favoritado = this.favoritos.favoritosIds.includes(id);
 
     this.filmeService.obterDetalhesFilmePorId(id).subscribe((filme) => {
       this.filme = filme;

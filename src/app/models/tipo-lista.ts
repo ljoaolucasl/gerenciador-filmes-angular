@@ -1,1 +1,7 @@
-export type TipoLista = 'EmAlta' | 'Lancamentos' | 'EmBreve' | 'BemAvaliado';
+export type TipoLista =
+  | 'Searcher'
+  | 'Favoritos'
+  | 'EmAlta'
+  | 'Lancamentos'
+  | 'EmBreve'
+  | 'BemAvaliado';

@@ -1,6 +1,6 @@
 <div class="container mt-4">
   <div class="row" id="detalhesFilme">
-    <!-- Detalhes Filme -->
+    <!--? Detalhes Filme -->
     <div class="row">
       <div class="col-md-4">
         <img
@@ -15,7 +15,10 @@
           <button class="btn btn-warning" (click)="favoritarFilme()">
             <i
               class="bi"
-              [ngClass]="{ 'bi-heart-fill': favorito, 'bi-heart': !favorito }"
+              [ngClass]="{
+                'bi-heart-fill': favoritado,
+                'bi-heart': !favoritado
+              }"
             ></i>
             Favoritar
           </button>
@@ -39,7 +42,7 @@
             id="video"
             width="560"
             height="315"
-            [src]="filme.video"
+            [src]="filme.video | safe"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen="true;"

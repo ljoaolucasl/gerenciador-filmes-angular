@@ -1,0 +1,82 @@
+<div ngbAccordion class="container mt-4">
+  <!--? Categoria Favoritos -->
+  <div ngbAccordionItem [collapsed]="false" class="bg-transparent border-0">
+    <h2 ngbAccordionHeader>
+      <button
+        ngbAccordionButton
+        class="bg-transparent border-0 pt-0"
+        type="button"
+      >
+        <h2 class="text-warning mt-4">Favoritos</h2>
+      </button>
+    </h2>
+    <div ngbAccordionCollapse>
+      <div ngbAccordionBody>
+        <div class="row">
+          <!--? Lista de Filmes -->
+          <app-lista-filme [tipoLista]="'Favoritos'"></app-lista-filme>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--? Categoria Lancamentos -->
+  <div ngbAccordionItem [collapsed]="false" class="bg-transparent border-0">
+    <h2 ngbAccordionHeader>
+      <button
+        ngbAccordionButton
+        class="bg-transparent border-0 pt-0"
+        type="button"
+      >
+        <h2 class="text-warning mt-4">Lançamentos</h2>
+      </button>
+    </h2>
+    <div ngbAccordionCollapse>
+      <div ngbAccordionBody>
+        <div class="row">
+          <!--? Lista de Filmes -->
+          <app-lista-filme [tipoLista]="'Lancamentos'"></app-lista-filme>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--? Categoria Em Alta -->
+  <div ngbAccordionItem [collapsed]="false" class="bg-transparent border-0">
+    <h2 ngbAccordionHeader>
+      <button
+        ngbAccordionButton
+        class="bg-transparent border-0 pt-0"
+        type="button"
+      >
+        <h2 class="text-warning mt-4">Em Alta</h2>
+      </button>
+    </h2>
+    <div ngbAccordionCollapse>
+      <div ngbAccordionBody>
+        <div class="row">
+          <!--? Lista de Filmes -->
+          <app-lista-filme [tipoLista]="'EmAlta'"></app-lista-filme>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--? Categoria Em Breve -->
+  <div ngbAccordionItem [collapsed]="false" class="bg-transparent border-0">
+    <h2 ngbAccordionHeader>
+      <button
+        ngbAccordionButton
+        class="bg-transparent border-0 pt-0"
+        type="button"
+      >
+        <h2 class="text-warning mt-4">Em Breve</h2>
+      </button>
+    </h2>
+    <div ngbAccordionCollapse>
+      <div ngbAccordionBody>
+        <div class="row">
+          <!--? Lista de Filmes -->
+          <app-lista-filme [tipoLista]="'EmBreve'"></app-lista-filme>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

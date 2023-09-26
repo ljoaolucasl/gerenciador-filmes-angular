@@ -1,29 +1,51 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-black">
   <div class="container-fluid">
-    <a class="navbar-brand fw-bold" href="#"> TMDb </a>
+    <a class="navbar-brand fw-bold" href="#"
+      ><i class="bi bi-film text-warning"></i> TMDb</a
+    >
     <button
       class="navbar-toggler"
       type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
+      (click)="toggleNavbar = !toggleNavbar"
+      aria-controls="navbarToggler"
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
+    <div
+      class="collapse navbar-collapse"
+      id="navbarTogglerDemo02"
+      [ngbCollapse]="toggleNavbar"
+    >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">Início</a>
+          <a class="nav-link active" routerLink="/filmes/home">Início</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Filmes</a>
+          <a class="nav-link active" routerLink="/filmes/lista">Filmes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Sobre</a>
+          <a class="nav-link active" href="#">Sobre</a>
         </li>
       </ul>
+      <form (submit)="pesquisarFilme()" class="d-flex input-group w-auto">
+        <input
+          [(ngModel)]="query"
+          name="query"
+          type="search"
+          class="form-control"
+          placeholder="Procurar Filme..."
+          aria-label="Search"
+        />
+        <button
+          class="btn btn-outline-warning"
+          type="submit"
+          data-mdb-ripple-color="dark"
+        >
+          Pesquisar
+        </button>
+      </form>
     </div>
   </div>
 </nav>

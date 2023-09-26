@@ -4,7 +4,27 @@
       *ngFor="let filme of filmes; let i = index"
       class="col-xl-2 col-lg-3 col-md-4 col-sm-6 mb-4"
     >
-      <app-card-filme [filme]="filme"></app-card-filme>
+      <div>
+        <ngx-skeleton-loader
+          *ngIf="isLoading"
+          [theme]="{
+            width: '160px',
+            height: '350px',
+            'background-color': '#350000',
+            border: '1px solid white'
+          }"
+          [count]="5"
+          class="skeleton-loader"
+        >
+        </ngx-skeleton-loader>
+      </div>
+      <app-card-filme *ngIf="!isLoading" [filme]="filme"></app-card-filme>
+    </div>
+    <div>
+      <app-pagination-bar
+        (pageChange)="atualizarLista($event)"
+        [totalPages]="totalPages"
+      ></app-pagination-bar>
     </div>
   </ng-container>
 </div>

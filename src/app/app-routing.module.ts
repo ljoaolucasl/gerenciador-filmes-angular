@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DetalhesFilmeComponent } from './pages/detalhes-filme/detalhes-filme.component';
-import { ListaFilmeComponent } from './shared/lista-filme/lista-filme.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ListagemFilmeComponent } from './pages/listagem-filme/listagem-filme.component';
+import { SearchFilmeComponent } from './pages/search-filme/search-filme.component';
 
 const routes: Routes = [
   {
@@ -20,7 +21,11 @@ const routes: Routes = [
   },
   {
     path: 'filmes/lista',
-    component: ListaFilmeComponent,
+    component: ListagemFilmeComponent,
+  },
+  {
+    path: 'filmes/search',
+    component: SearchFilmeComponent,
   },
 ];
 

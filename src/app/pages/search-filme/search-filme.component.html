@@ -1,0 +1,25 @@
+<div ngbAccordion class="container mt-4">
+  <!--? Categoria Lancamentos -->
+  <div ngbAccordionItem [collapsed]="false" class="bg-transparent border-0">
+    <h2 ngbAccordionHeader>
+      <button
+        ngbAccordionButton
+        class="bg-transparent border-0 pt-0"
+        type="button"
+      >
+        <h2 class="text-warning mt-4">Resultados</h2>
+      </button>
+    </h2>
+    <div ngbAccordionCollapse>
+      <div ngbAccordionBody>
+        <div class="row">
+          <!--? Lista de Filmes -->
+          <app-lista-filme
+            [query]="query"
+            [tipoLista]="'Searcher'"
+          ></app-lista-filme>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

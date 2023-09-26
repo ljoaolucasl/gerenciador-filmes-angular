@@ -1,0 +1,13 @@
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.nav-link {
+  padding-left: 1em;
+  border-radius: 1em;
+}
+
+.nav-link:hover {
+  transition: background-color 0.3s;
+  background-color: rgba(255, 193, 7, 0.4);
+}
