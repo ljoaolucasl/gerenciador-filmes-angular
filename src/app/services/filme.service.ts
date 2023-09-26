@@ -6,7 +6,15 @@ import { HttpClient } from '@angular/common/http';
 import { FilmeLista } from '../models/filme-lista';
 import { TipoLista } from '../models/tipo-lista';
 import { RepositorioFilmesFavoritos } from './local-storage.service';
-import { Observable, forkJoin, map, mergeMap, of, switchMap } from 'rxjs';
+import {
+  Observable,
+  delay,
+  forkJoin,
+  map,
+  mergeMap,
+  of,
+  switchMap,
+} from 'rxjs';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -142,7 +150,7 @@ export class FilmeService {
     );
   }
 
-  public obterCreditos(id: string): Observable<FilmeCreditos> {
+  public obterCreditosFilmePorId(id: number): Observable<FilmeCreditos> {
     const url = `${this.urlPrincipal}/movie/${id}/credits?language=pt-BR`;
 
     return this.http.get<any>(url, this._options).pipe(
@@ -209,10 +217,13 @@ export class FilmeService {
       primeiroTrailer?.key ||
       primeiroTeaser?.key;
 
-    return videoKey ? `https://www.youtube.com/embed/${videoKey}` : '';
+    return videoKey
+      ? `https://www.youtube.com/embed/${videoKey}`
+      : 'https://www.youtube.com/embed';
   }
 
   private mapearFilmeDetalhes(obj: any): FilmeDetalhes {
+    console.log(obj);
     return {
       id: obj.id,
       titulo: obj.title,

@@ -2,11 +2,13 @@
   <ngb-carousel #carousel [interval]="5000">
     <ng-template ngbSlide *ngFor="let filme of filmesLancamentos">
       <div class="picsum-img-wrapper">
-        <img
-          class="d-block w-100 banner"
-          [src]="'https://image.tmdb.org/t/p/original' + filme.banner"
-          [alt]="'Banner do filme: ' + filme.titulo"
-        />
+        <a class="link-filme" routerLink="/filmes/detalhes/{{ filme.id }}">
+          <img
+            class="d-block w-100 banner"
+            [src]="'https://image.tmdb.org/t/p/original' + filme.banner"
+            [alt]="'Banner do filme: ' + filme.titulo"
+          />
+        </a>
       </div>
       <div class="carousel-caption p-5">
         <h3>{{ filme.titulo }}</h3>

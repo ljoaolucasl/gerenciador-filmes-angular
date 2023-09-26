@@ -14,10 +14,7 @@
       <div ngbAccordionBody>
         <div class="row">
           <!--? Lista de Filmes -->
-          <app-lista-filme
-            [query]="query"
-            [tipoLista]="'Searcher'"
-          ></app-lista-filme>
+          <app-lista-search-filme [query]="query"></app-lista-search-filme>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FilmeCreditos } from 'src/app/models/filme-creditos';
 import { FilmeDetalhes } from 'src/app/models/filme-detalhes';
 import { IFavoritosFilmes } from 'src/app/models/filme-favoritos';
 import { FilmeService } from 'src/app/services/filme.service';
@@ -14,6 +15,7 @@ export class DetalhesFilmeComponent {
   favoritos: IFavoritosFilmes = { favoritosIds: [] };
   favoritado: boolean = false;
   filme: FilmeDetalhes = new FilmeDetalhes('', '', '', '', 0, [], '', '');
+  filmeCreditos: FilmeCreditos = new FilmeCreditos();
 
   favoritarFilme() {
     if (!this.favoritado) {
@@ -41,6 +43,10 @@ export class DetalhesFilmeComponent {
 
     this.filmeService.obterDetalhesFilmePorId(id).subscribe((filme) => {
       this.filme = filme;
+    });
+
+    this.filmeService.obterCreditosFilmePorId(id).subscribe((creditos) => {
+      this.filmeCreditos = creditos;
     });
   }
 }

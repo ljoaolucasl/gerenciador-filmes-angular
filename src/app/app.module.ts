@@ -20,6 +20,10 @@ import { FormsModule } from '@angular/forms';
 import { PaginationBarComponent } from './shared/pagination-bar/pagination-bar.component';
 import { SearchFilmeComponent } from './pages/search-filme/search-filme.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { NgOptimizedImage, provideImgixLoader } from '@angular/common';
+import { CardSearchFilmeComponent } from './shared/card-search-filme/card-search-filme.component';
+import { ListaSearchFilmeComponent } from './shared/lista-search-filme/lista-search-filme.component';
+import { CardLoadingComponent } from './shared/card-loading/card-loading.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +36,9 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     ListagemFilmeComponent,
     PaginationBarComponent,
     SearchFilmeComponent,
+    CardSearchFilmeComponent,
+    ListaSearchFilmeComponent,
+    CardLoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,8 +50,9 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     NgbCollapseModule,
     NgbAccordionModule,
     NgxSkeletonLoaderModule,
+    NgOptimizedImage,
   ],
-  providers: [],
+  providers: [provideImgixLoader('https://image.tmdb.org/t/p/')],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,20 @@
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f000 25%, #e7e7e7 50%, #f0f0f000 75%);
+  background-size: 200% 100%;
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .loading-skeleton {
+    min-height: 500px;
+  }
+}

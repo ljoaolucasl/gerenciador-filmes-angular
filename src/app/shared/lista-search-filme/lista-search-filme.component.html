@@ -1,11 +1,14 @@
-<div class="row">
+<div class="col">
   <ng-container>
     <div
       *ngFor="let filme of filmes; let i = index"
-      class="col-xl-2 col-lg-3 col-md-4 col-sm-6 mb-4"
+      class="row-xl-2 row-lg-3 row-md-4 row-sm-6 mb-4"
     >
       <app-card-loading *ngIf="isLoading"></app-card-loading>
-      <app-card-filme *ngIf="!isLoading" [filme]="filme"></app-card-filme>
+      <app-card-search-filme
+        *ngIf="!isLoading"
+        [filme]="filme"
+      ></app-card-search-filme>
     </div>
     <div>
       <app-pagination-bar

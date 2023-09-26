@@ -1,0 +1,26 @@
+<div
+  class="card mb-3 border border-warning bg-transparent text-white"
+  [ngClass]="{
+    'border border-warning': favoritos.favoritosIds.includes(idFilme)
+  }"
+>
+  <div class="row g-0">
+    <div class="col-md-2">
+      <a class="link-filme" routerLink="/filmes/detalhes/{{ filme.id }}">
+        <img
+          class="img-fluid"
+          [ngSrc]="'original' + filme.cartaz"
+          width="200"
+          height="200"
+          [alt]="'Filme ' + filme.titulo"
+        />
+      </a>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ filme.titulo }}</h5>
+        <p class="card-text">{{ filme.descricao }}</p>
+      </div>
+    </div>
+  </div>
+</div>

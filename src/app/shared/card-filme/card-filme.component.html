@@ -6,8 +6,10 @@
 >
   <a class="link-filme" routerLink="/filmes/detalhes/{{ filme.id }}">
     <img
-      class="card-img-top"
-      [src]="'https://image.tmdb.org/t/p/original' + filme.cartaz"
+      class="card-img-top img-fluid"
+      [ngSrc]="'original' + filme.cartaz"
+      width="553"
+      height="830"
       [alt]="'Filme ' + filme.titulo"
     />
     <div class="card-body">
