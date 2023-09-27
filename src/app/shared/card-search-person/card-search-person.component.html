@@ -1,0 +1,21 @@
+<div class="card mb-3 bg-transparent text-white">
+  <div class="row g-0">
+    <div class="col-md-2">
+      <a class="link-filme" routerLink="/filmes/person-detail/{{ person.id }}">
+        <img
+          class="img-fluid rounded"
+          [ngSrc]="'w500' + person.imagem"
+          width="200"
+          height="200"
+          [alt]="'Person ' + person.nome"
+        />
+      </a>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ person.nome }}</h5>
+        <p class="card-text">{{ person.biografia }}</p>
+      </div>
+    </div>
+  </div>
+</div>

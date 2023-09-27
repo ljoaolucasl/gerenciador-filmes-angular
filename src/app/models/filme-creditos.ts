@@ -1,5 +1,6 @@
 export class FilmeCreditos {
   elenco: {
+    id: number;
     ordem: number;
     departamento: string;
     nome: string;
@@ -8,6 +9,7 @@ export class FilmeCreditos {
   }[] = [];
 
   equipe: {
+    id: number;
     setor: string;
     nome: string;
     imagem: string;
@@ -15,6 +17,7 @@ export class FilmeCreditos {
 
   adicionarElenco(obj: any) {
     const creditosElenco = {
+      id: obj.id,
       ordem: obj.order,
       departamento: obj.known_for_department,
       nome: obj.name,
@@ -26,6 +29,7 @@ export class FilmeCreditos {
 
   adicionarEquipe(obj: any) {
     const creditosEquipe = {
+      id: obj.id,
       setor: obj.job,
       nome: obj.name,
       imagem: obj.profile_path,

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FilmeCreditos } from 'src/app/models/filme-creditos';
 import { FilmeDetalhes } from 'src/app/models/filme-detalhes';

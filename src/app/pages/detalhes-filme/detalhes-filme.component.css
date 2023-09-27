@@ -3,3 +3,13 @@
   padding: 10px;
   border-radius: 10px;
 }
+
+.card {
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.01);
+  box-shadow: 0 0 0.2rem #ffffff6d;
+}

@@ -4,6 +4,7 @@ import { DetalhesFilmeComponent } from './pages/detalhes-filme/detalhes-filme.co
 import { HomeComponent } from './pages/home/home.component';
 import { ListagemFilmeComponent } from './pages/listagem-filme/listagem-filme.component';
 import { SearchFilmeComponent } from './pages/search-filme/search-filme.component';
+import { DetalhesPersonComponent } from './pages/detalhes-person/detalhes-person.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'filmes/search',
     component: SearchFilmeComponent,
+  },
+  {
+    path: 'filmes/person-detail/:id',
+    component: DetalhesPersonComponent,
   },
 ];
 

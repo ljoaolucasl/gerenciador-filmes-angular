@@ -24,6 +24,9 @@ import { NgOptimizedImage, provideImgixLoader } from '@angular/common';
 import { CardSearchFilmeComponent } from './shared/card-search-filme/card-search-filme.component';
 import { ListaSearchFilmeComponent } from './shared/lista-search-filme/lista-search-filme.component';
 import { CardLoadingComponent } from './shared/card-loading/card-loading.component';
+import { DetalhesPersonComponent } from './pages/detalhes-person/detalhes-person.component';
+import { ListaSearchPersonComponent } from './shared/lista-search-person/lista-search-person.component';
+import { CardSearchPersonComponent } from './shared/card-search-person/card-search-person.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +42,9 @@ import { CardLoadingComponent } from './shared/card-loading/card-loading.compone
     CardSearchFilmeComponent,
     ListaSearchFilmeComponent,
     CardLoadingComponent,
+    DetalhesPersonComponent,
+    ListaSearchPersonComponent,
+    CardSearchPersonComponent,
   ],
   imports: [
     BrowserModule,

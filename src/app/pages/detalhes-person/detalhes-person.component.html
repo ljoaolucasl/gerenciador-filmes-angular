@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <div class="row" id="detalhesFilme">
+    <!--? Detalhes Person -->
+    <div class="row">
+      <div class="col-md-4">
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500' + person.imagem"
+          class="img-fluid rounded"
+          [alt]="'Poster do Filme'"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="d-flex justify-content-between align-items-center mt-2">
+          <h1 class="mb-0">{{ person.nome }}</h1>
+        </div>
+        <p class="highlight-description">
+          <strong>Biografia:</strong> {{ person.biografia }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <h2 class="text-warning mb-4">Filmes</h2>
+    <div
+      *ngFor="let filme of person.filmes"
+      class="col-xl-2 col-lg-3 col-md-4 col-sm-6 mb-4"
+    >
+      <app-card-filme [filme]="filme"></app-card-filme>
+    </div>
+  </div>
+</div>

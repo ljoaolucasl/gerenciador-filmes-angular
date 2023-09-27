@@ -16,6 +16,7 @@ import {
   switchMap,
 } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { PersonDetail } from '../models/person-detalhes';
 
 @Injectable({
   providedIn: 'root',
@@ -80,7 +81,7 @@ export class FilmeService {
     query: string,
     page: number
   ): Observable<{ filmes: FilmeLista[]; totalPages: number }> {
-    const url = `https://api.themoviedb.org/3/search/movie?language=pt-BR&query=${query}&page=${page}`;
+    const url = `${this.urlPrincipal}/search/movie?language=pt-BR&query=${query}&page=${page}`;
     return this.http.get<any[]>(url, this._options).pipe(
       mergeMap((archive: any) => {
         const totalPages = archive.total_pages;
@@ -88,6 +89,26 @@ export class FilmeService {
           return this.mapearFilmeListagem(obj);
         });
         return of({ filmes, totalPages });
+      })
+    );
+  }
+
+  obterListaPersonSearch(
+    query: string,
+    page: number
+  ): Observable<{ persons: PersonDetail[]; totalPages: number }> {
+    const url = `${this.urlPrincipal}/search/person?language=pt-BR&query=${query}&include_adult=false&page=${page}`;
+    return this.http.get<any[]>(url, this._options).pipe(
+      mergeMap((archive: any) => {
+        const totalPages = archive.total_pages;
+        const persons = archive.results.map((obj: any) => {
+          return this.mapearPersonDetalhes(obj);
+        });
+        persons.sort(
+          (a: PersonDetail, b: PersonDetail) => b.popularidade - a.popularidade
+        );
+        console.log(persons);
+        return of({ persons, totalPages });
       })
     );
   }
@@ -138,6 +159,34 @@ export class FilmeService {
           );
         })
       );
+  }
+
+  public obterDetalhesPersonPorId(id: number): Observable<PersonDetail> {
+    const url = `${this.urlPrincipal}/person/${id}?append_to_response=combined_credits&language=pt-BR`;
+
+    return this.http.get<any>(url, this._options).pipe(
+      map((archive: any) => {
+        return this.mapearPersonDetalhes(archive);
+      })
+    );
+  }
+
+  mapearPersonDetalhes(archive: any): PersonDetail {
+    return {
+      id: archive.id,
+      nome: archive.name,
+      imagem: archive.profile_path,
+      popularidade: archive.popularity,
+      biografia: archive.biography != undefined ? archive.biography : '',
+      filmes:
+        archive.combined_credits?.cast != undefined
+          ? archive.combined_credits.cast
+              .filter((item: any) => item.media_type === 'movie')
+              .map((obj: any) => {
+                return this.mapearFilmeListagem(obj);
+              })
+          : '',
+    };
   }
 
   public obterUrlVideo(id: string): Observable<string> {

@@ -1,0 +1,20 @@
+<div class="col">
+  <ng-container>
+    <div
+      *ngFor="let person of persons; let i = index"
+      class="row-xl-2 row-lg-3 row-md-4 row-sm-6 mb-4"
+    >
+      <app-card-loading *ngIf="isLoading"></app-card-loading>
+      <app-card-search-person
+        *ngIf="!isLoading"
+        [person]="person"
+      ></app-card-search-person>
+    </div>
+    <div>
+      <app-pagination-bar
+        (pageChange)="atualizarLista($event)"
+        [totalPages]="totalPages"
+      ></app-pagination-bar>
+    </div>
+  </ng-container>
+</div>

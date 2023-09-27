@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { FilmeLista } from 'src/app/models/filme-lista';
 
 @Component({
   selector: 'app-search-filme',
@@ -8,7 +7,6 @@ import { FilmeLista } from 'src/app/models/filme-lista';
   styleUrls: ['./search-filme.component.css'],
 })
 export class SearchFilmeComponent implements OnInit {
-  filmes: FilmeLista[] = [];
   query: string = '';
 
   constructor(private route: ActivatedRoute) {}

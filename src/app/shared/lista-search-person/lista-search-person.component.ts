@@ -6,17 +6,17 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { FilmeService } from 'src/app/services/filme.service';
-import { FilmeLista } from 'src/app/models/filme-lista';
 import { PersonDetail } from 'src/app/models/person-detalhes';
+
 @Component({
-  selector: 'app-lista-search-filme',
-  templateUrl: './lista-search-filme.component.html',
-  styleUrls: ['./lista-search-filme.component.css'],
+  selector: 'app-lista-search-person',
+  templateUrl: './lista-search-person.component.html',
+  styleUrls: ['./lista-search-person.component.css'],
 })
-export class ListaSearchFilmeComponent implements OnInit, OnChanges {
+export class ListaSearchPersonComponent implements OnInit, OnChanges {
   @Input() query: string = '';
   totalPages: number = 2;
-  filmes: FilmeLista[] = [];
+  persons: PersonDetail[] = [];
 
   isLoading: boolean = true;
 
@@ -36,10 +36,11 @@ export class ListaSearchFilmeComponent implements OnInit, OnChanges {
     this.isLoading = true;
 
     this.filmeService
-      .obterListaFilmes('Searcher', page, this.query)
+      .obterListaPersonSearch(this.query, page)
       .subscribe((resultado) => {
-        this.filmes = resultado.filmes;
+        this.persons = resultado.persons;
         this.totalPages = resultado.totalPages;
+        console.log(this.persons);
         this.isLoading = false;
       });
   }
