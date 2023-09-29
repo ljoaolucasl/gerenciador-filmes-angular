@@ -272,7 +272,6 @@ export class FilmeService {
   }
 
   private mapearFilmeDetalhes(obj: any): FilmeDetalhes {
-    console.log(obj);
     return {
       id: obj.id,
       titulo: obj.title,
