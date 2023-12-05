@@ -4,7 +4,7 @@ Um Gerenciador de Filmes feito no Angular
 
 ## Demo
 
-Confira a demonstração do projeto em: [Gerenciador de Filmes Demo](https://gerenciador-filmes-angular-jqmg.onrender.com/filmes/home)
+Confira a demonstração do projeto em: [Gerenciador de Filmes Demo](https://ljoaolucasl.github.io/gerenciador-filmes-angular/filmes/home)
 
 ## Funcionalidades
 
